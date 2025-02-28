@@ -20,7 +20,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 //images ophalen voor de fietsen
 Route::get('/image/{filename}', function ($filename) {
-    $path = storage_path('app/private/' . $filename);
+    $path = storage_path('app/private/assets/' . $filename);
 
     if (!file_exists($path)) {
         abort(404);
