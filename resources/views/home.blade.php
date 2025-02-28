@@ -40,8 +40,8 @@
                     </ul>
                 </div>
                 <div class="nav-buttons">
-                    <a href="#">Inloggen</a>
-                    <button class="cart"></button>
+                    <a href="{{ route('login') }}">Inloggen</a>
+                    <a href="#" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
         </header>
