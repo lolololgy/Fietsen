@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function view()
     {
-        $userId = session('user_id');
+        $user = Auth::user();
 
-        if ($userId) {
-            $user = User::find($userId);
+        if ($user) {
             return view('home', compact('user'));
         }
 
