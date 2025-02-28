@@ -17,7 +17,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/home', [HomeController::class, 'view'])->name('home');
 
 Route::get('/image/{filename}', function ($filename) {
-    $path = storage_path('app/private/' . $filename);
+    $path = storage_path('app/private/assets/' . $filename);
 
     if (!file_exists($path)) {
         abort(404);
