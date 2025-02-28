@@ -45,7 +45,7 @@ class UserController extends Controller
             return redirect()->intended('/home');
         }
 
-        return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
+        return redirect('/login')->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');
     }
 
     public function logout(Request $request)
@@ -54,6 +54,6 @@ class UserController extends Controller
         session()->flush();
         session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'You have been logged out.');
+        return redirect('/login')->with('success', 'Je bent uitgelogd.');
     }
 }
