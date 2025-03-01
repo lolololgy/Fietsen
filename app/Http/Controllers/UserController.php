@@ -20,7 +20,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
         ]);
 
         User::create([
@@ -42,11 +42,18 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            session(['user_id' => Auth::user()->id]);
-
             return redirect()->intended('/home');
         }
 
-        return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
+        return redirect('/login')->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        session()->flush();
+        session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Je bent uitgelogd.');
     }
 }
