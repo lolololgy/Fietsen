@@ -6,5 +6,5 @@
     <input type="password" name="password_confirmation" placeholder="Bevestig het wachtwoord" required><br>
     <button type="submit">Register</button>
     <br>
-    <a href="{{ route('login') }}">Login</a>
+    <a href="{{ route('login') }}">Inloggen</a>
 </form>

@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return redirect('/home');
 });
+Route::get('', function () {
+    return redirect('/home');
+});
 
 Route::get('/home', [HomeController::class, 'view'])->name('home');
 
