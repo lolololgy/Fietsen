@@ -13,7 +13,13 @@ class FietsController extends Controller
         if ($user->is_admin == 1) {
             return view('create-bike');
         } else {
+
             return redirect('/home');
         }
+    }
+
+    public function storeBike()
+    {
+        return "a";
     }
 }

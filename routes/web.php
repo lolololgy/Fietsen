@@ -34,3 +34,4 @@ Route::get('/image/{filename}', function ($filename) {
 })->middleware('auth');
 
 Route::get('/create-bike', [FietsController::class, 'createBike'])->name('create-bike');
+Route::post('/create-bike', [FietsController::class, 'storeBike'])->name('store-bike');
