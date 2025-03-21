@@ -33,5 +33,11 @@ Route::get('/image/{filename}', function ($filename) {
     return response()->file($path);
 })->middleware('auth');
 
+//fiets logica routes
 Route::get('/create-bike', [FietsController::class, 'createBike'])->name('create-bike');
 Route::post('/create-bike', [FietsController::class, 'storeBike'])->name('store-bike');
+
+Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
+Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
+
+Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('overview-bike');
