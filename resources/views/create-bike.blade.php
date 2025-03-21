@@ -37,29 +37,25 @@
     <label for="GarantieInMaand">Garantie In Maanden:</label>
     <input type="text" id="GarantieInMaand" name="GarantieInMaand" required><br>
 
+    <div id="imageFields">
+        <label for="images">Afbeeldingen:</label>
+        <input type="file" id="images" name="images[]" multiple required><br>
+    </div>
+
+
     <button type="submit">Fiets Aanmaken</button>
 </form>
 <script>
     document.getElementById('bikeForm').addEventListener('submit', function (e) {
         e.preventDefault();
+        var formData = new FormData(this);
 
         $.ajax({
             url: '/create-bike',
             type: 'POST',
-            data: {
-                Naam: $('#Naam').val(),
-                Prijs: $('#Prijs').val(),
-                Voorraad: $('#Voorraad').val(),
-                Productcategorieën: $('#Productcategorieën').val(),
-                Merk: $('#Merk').val(),
-                SN: $('#SN').val(),
-                FrameMateriaal: $('#FrameMateriaal').val(),
-                BatterijTypen: $('#BatterijTypen').val(),
-                WielMaat: $('#WielMaat').val(),
-                Versnelling: $('#Versnelling').val(),
-                KleurVarianten: $('#KleurVarianten').val(),
-                GarantieInMaand: $('#GarantieInMaand').val(),
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -72,6 +68,5 @@
                 toastr.error(error.responseJSON.message);
             }
         });
-
     });
 </script>
