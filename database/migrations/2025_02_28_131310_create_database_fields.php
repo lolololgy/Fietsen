@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Telefoon')->nullable();
             $table->string('Adres');
             $table->string('Postcode');
-            $table->string('Rechten')->default('user');
+            $table->string('Rechten')->default('klant');
             $table->timestamps();
         });
 
