@@ -73,7 +73,7 @@ return new class extends Migration
             $table->foreign('AccessoireId')
                 ->references('AccessoireId')->on('accessoires')
                 ->onDelete('cascade');
-            $table->integer('SterrenAantal');
+            $table->double('SterrenAantal');
             $table->date('Datum');
             $table->text('Beschrijving');
             $table->timestamps();
