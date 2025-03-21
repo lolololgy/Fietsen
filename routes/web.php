@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FietsController;
 
 Route::get('/', function () {
+    return redirect('/home');
+});
+Route::get('', function () {
     return redirect('/home');
 });
 
@@ -29,3 +33,11 @@ Route::get('/image/{filename}', function ($filename) {
     return response()->file($path);
 })->middleware('auth');
 
+//fiets logica routes
+Route::get('/create-bike', [FietsController::class, 'createBike'])->name('create-bike');
+Route::post('/create-bike', [FietsController::class, 'storeBike'])->name('store-bike');
+
+Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
+Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
+
+Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('overview-bike');
