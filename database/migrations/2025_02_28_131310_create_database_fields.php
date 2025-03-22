@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('klanten', function (Blueprint $table) {
             $table->id('KlantId');
-            $table->string('Naam');
-            $table->string('Email')->unique();
-            $table->string('Wachtwoord');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('Telefoon')->nullable();
             $table->string('Adres');
             $table->string('Postcode');
