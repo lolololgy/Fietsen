@@ -9,14 +9,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('fietsen', function (Blueprint $table) {
-            $table->text('beschrijving')->nullable(); // nullable voorkomt problemen met bestaande data
+            $table->text('Beschrijving')->nullable()->after('Prijs'); // nullable voorkomt problemen met bestaande data
         });
     }
 
     public function down()
     {
         Schema::table('fietsen', function (Blueprint $table) {
-            $table->dropColumn('beschrijving');
+            $table->dropColumn('Beschrijving');
         });
     }
 };
