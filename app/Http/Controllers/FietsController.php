@@ -31,8 +31,6 @@ class FietsController extends Controller
         }
     }
 
-
-
     public function storeBike(Request $request)
     {
         $fiets = new Fiets();
@@ -54,18 +52,18 @@ class FietsController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
-
                 $filename = time() . '_' . $image->getClientOriginalName();
 
-                $path = $image->storeAs('private/assets/fietsen', $filename);
+                $image->move(storage_path('app/private/assets/fietsen'), $filename);
 
                 Image::create([
                     'FietsId' => $fiets->FietsId,
-                    'Src' => $path,
+                    'Src' => 'private/assets/fietsen/' . $filename,
                     'Positie' => $index + 1
                 ]);
             }
         }
+
 
         return response()->json(['message' => 'Fiets is succesvol aangemaakt'], 200);
     }

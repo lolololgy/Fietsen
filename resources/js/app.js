@@ -10,6 +10,7 @@ window.$ = window.jQuery = $;
 // Make toastr available globally
 window.toastr = toastr;
 
+// Check if jQuery is working
 $(document).ready(function () {
     console.log("jQuery is working!");
 });
