@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KlantController;
 
 Route::get('/', function () {
     return redirect('/home');
@@ -10,13 +11,14 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'view'])->name('home');
 
-Route::get('/register', [UserController::class, 'showRegistrationForm']);
-Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::get('/userRegister', [UserController::class, 'showUserRegistrationForm']);
+Route::post('/userRegister', [UserController::class, 'userRegister'])->name('userRegister');
 
-Route::get('/login', [UserController::class, 'showLoginForm']);
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/userLogin', [UserController::class, 'showUserLoginForm']);
+Route::post('/userLogin', [UserController::class, 'userLogin'])->name('userLogin');
 
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/userLogout', [UserController::class, 'userLogout'])->name('userLogout');
+Route::get('/userLogout', [UserController::class, 'userLogout'])->name('userLogout');
 
 //images ophalen voor de fietsen
 Route::get('/image/{filename}', function ($filename) {
@@ -27,5 +29,20 @@ Route::get('/image/{filename}', function ($filename) {
     }
 
     return response()->file($path);
-})->middleware('auth');
+})->middleware('auth:userAuth');
 
+
+
+Route::get('/register', [KlantController::class, 'showRegistrationForm']);
+Route::post('/register', [KlantController::class, 'register'])->name('register');
+
+Route::get('/login', [KlantController::class, 'showLoginForm']);
+Route::post('/login', [KlantController::class, 'login'])->name('login');
+
+Route::post('/logout', [KlantController::class, 'logout'])->name('logout');
+//Route::get('/logout', [KlantController::class, 'logout'])->name('logout');
+
+
+Route::get('/customerView', function () {
+    return view('CustomerViewPortal.customerView');
+})->middleware('auth:userAuth');
