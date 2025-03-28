@@ -32,3 +32,6 @@ Route::get('/image/{filename}', function ($filename) {
     return response()->file($path);
 })->middleware('auth');
 
+Route::get('/webshop', function () {
+    return view('webshop');
+});

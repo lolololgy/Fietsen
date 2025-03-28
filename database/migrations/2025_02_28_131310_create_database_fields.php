@@ -42,7 +42,7 @@ return new class extends Migration
 
         Schema::create('images', function (Blueprint $table) {
             $table->id('ImageId');
-            $table->foreignId('FietsId')->constrained('fietsen')->onDelete('cascade');
+            $table->foreignId('FietsId');
             $table->string('Src');
             $table->integer('Positie');
             $table->timestamps();
@@ -58,9 +58,9 @@ return new class extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->id('ReviewId');
-            $table->foreignId('KlantId')->constrained('klanten')->onDelete('cascade');
-            $table->foreignId('FietsId')->nullable()->constrained('fietsen')->onDelete('cascade');
-            $table->foreignId('AccessoireId')->nullable()->constrained('accessoires')->onDelete('cascade');
+            $table->foreignId('KlantId');
+            $table->foreignId('FietsId')->nullable();
+            $table->foreignId('AccessoireId')->nullable();
             $table->integer('SterrenAantal');
             $table->date('Datum');
             $table->text('Beschrijving');
@@ -69,11 +69,11 @@ return new class extends Migration
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id('OrderId');
-            $table->foreignId('KlantId')->constrained('klanten')->onDelete('cascade');
+            $table->foreignId('KlantId');
             $table->date('Datum');
             $table->decimal('TotalPrijs', 10, 2);
-            $table->foreignId('FietsId')->nullable()->constrained('fietsen')->onDelete('cascade');
-            $table->foreignId('AccessoireId')->nullable()->constrained('accessoires')->onDelete('cascade');
+            $table->foreignId('FietsId')->nullable();
+            $table->foreignId('AccessoireId')->nullable();
             $table->timestamps();
         });
     }
