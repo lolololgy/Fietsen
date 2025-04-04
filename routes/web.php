@@ -93,6 +93,9 @@ Route::get('/customerView', function () {
     return view('CustomerViewPortal.customerView');
 })->middleware('auth:userAuth');
 
+Route::get('/webshop', function () {
+    return view('webshop');
+});
 Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
 Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
 
