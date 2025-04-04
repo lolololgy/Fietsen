@@ -1,3 +1,4 @@
+@vite(['resources/js/app.js'])
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <input type="text" name="name" placeholder="Name" required><br>
@@ -11,3 +12,14 @@
     <br>
     <a href="{{ route('login') }}">Login</a>
 </form>
+
+<script>
+    window.onload = function() {
+        @if ($errors->has('password'))
+        toastr.error('{{ $errors->first('password') }}');
+        @endif
+        @if ($errors->has('password_confirmation'))
+        toastr.error('{{ $errors->first('password_confirmation') }}');
+        @endif
+    };
+</script>
