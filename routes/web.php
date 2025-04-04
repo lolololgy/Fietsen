@@ -16,7 +16,7 @@ Route::get('', function () {
 
 
 // voeg product toe aan cart
-// id , naam, prijs,beschrijving, hoeveelheid, imageUrl
+// id, hoeveelheid, type
 Route::post('/winkelmand/add', [WinkelmandController::class, 'addToCart'])->name('winkelmand.add');
 
 // View cart
