@@ -106,4 +106,4 @@ Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('ov
 
 Route::get('/bekijk', function () {
     return view('bekijk');
-});
+})->name('bekijk');
