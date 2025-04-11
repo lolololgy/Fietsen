@@ -80,17 +80,15 @@ class WinkelMandController extends Controller
         $cart = session()->get('winkelmand', []);
 
         if (empty($cart)) {
-            return response()->json(['success' => false, 'message' => 'Je winkelmand is leeg.']);
-        }n
+            return response()->json(['succes' => false, 'message' => 'Je winkelmand is leeg.']);
+        }
 
-        $KlantId = auth()->id() ?? null; // Assuming you have user authentication
-        $Datum = Carbon::now(); // Capture the current date
+        $Datum = Carbon::now();
 
         foreach ($cart as $item) {
             // Separate fiets and accessoire orders
             if ($item['type'] === 'fiets') {
                 Order::create([
-                    'KlantId' => $KlantId,
                     'FietsId' => $item['id'],
                     'AccessoireId' => null,
                     'Datum' => $Datum,
