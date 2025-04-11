@@ -29,7 +29,7 @@ Route::get('/winkelmand/checkout', [WinkelmandController::class, 'checkout'])->n
 
 Route::get('/winkelmand/items', [WinkelmandController::class, 'getCartItems'])->name('winkelmand.items');
 Route::post('/winkelmand/checkout', [WinkelmandController::class, 'checkout'])->name('winkelmand.checkout');
-Route::get('/winkelmand', [WinkelmandController::class, 'showCart'])->name('card.view');
+Route::get('/winkelmand', [WinkelmandController::class, 'showCart'])->name('winkelmand');
 Route::post('/winkelmand/remove', [WinkelmandController::class, 'removeItem'])->name('winkelmand.remove');
 
 

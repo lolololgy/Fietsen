@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hoofdpagina.css') }}">
     <title>Winkelmand</title>
     @vite(['resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -107,6 +109,21 @@
     </style>
 </head>
 <body>
+<header class="header">
+    <div class="container">
+        <div class="logo"><a href="{{route('home')}}"><img src="assets/icons/bike.png" alt="logo"></a></div>
+        <nav class="nav">
+            <a href="{{route('webshop')}}" class="nav-btn shop-link"><span>Webshop</span></a>
+            <a href="#" class="nav-btn">Reviews</a>
+            <a href="#" class="nav-btn">Contact</a>
+        </nav>
+        <div class="user-actions">
+            <a href="{{{route('login')}}}" class="login-btn">Inloggen</a>
+            <a href="{{route('register')}}" class="registreer-btn">Registreren</a>
+            <a href="{{route('winkelmand')}}" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
+        </div>
+    </div>
+</header>
 <div class="container">
     <h1>Winkelmand</h1>
 

@@ -8,15 +8,31 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Webshop</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hoofdpagina.css') }}">
 </head>
 
 
 
 <body>
-
+<header class="header">
+    <div class="container">
+        <div class="logo"><a href="{{route('home')}}"><img src="assets/icons/bike.png" alt="logo"></a></div>
+        <nav class="nav">
+            <a href="{{route('webshop')}}" class="nav-btn shop-link"><span>Webshop</span></a>
+            <a href="#" class="nav-btn">Reviews</a>
+            <a href="#" class="nav-btn">Contact</a>
+        </nav>
+        <div class="user-actions">
+            <a href="{{{route('login')}}}" class="login-btn">Inloggen</a>
+            <a href="{{route('register')}}" class="registreer-btn">Registreren</a>
+            <a href="{{route('winkelmand')}}" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
+        </div>
+    </div>
+</header>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     @foreach($fietsen as $fiets)
-        <div class="shadow-md rounded-md overflow-hidden transform transition duration-500 hover:scale-105">
+        <div class="shadow-md rounded-md overflow-hidden transform transition duration-500 hover:scale-105 mt-32">
             <img src="https://1886531642.rsc.cdn77.org/content/images/thumbs/0016986_esprit-heren-black-matt.png"
                  alt="{{ $fiets->Naam }}" class="w-full h-64 object-contain">
             <div class="p-6">

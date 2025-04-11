@@ -178,5 +178,11 @@ class FietsController extends Controller
             return redirect('/home');
         }
     }
+    public function showWebshop()
+    {
+        $fietsen = Fiets::all();
+
+        return view('webshop', compact('fietsen'));
+    }
 }
 

@@ -31,16 +31,16 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo"><a href="#"><img src="assets/icons/bike.png" alt="logo"></a></div>
+            <div class="logo"><a href="{{route('home')}}"><img src="assets/icons/bike.png" alt="logo"></a></div>
             <nav class="nav">
-                <a href="#" class="nav-btn shop-link"><span>E-Bikes</span></a>
+                <a href="{{route('webshop')}}" class="nav-btn shop-link"><span>Webshop</span></a>
                 <a href="#" class="nav-btn">Reviews</a>
                 <a href="#" class="nav-btn">Contact</a>
             </nav>
             <div class="user-actions">
-                <a href="#" class="login-btn">Inloggen</a>
-                <a href="#" class="registreer-btn">Registreren</a>
-                <a href="#" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
+                <a href="{{{route('login')}}}" class="login-btn">Inloggen</a>
+                <a href="{{route('register')}}" class="registreer-btn">Registreren</a>
+                <a href="{{route('winkelmand')}}" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
             </div>
         </div>
     </header>

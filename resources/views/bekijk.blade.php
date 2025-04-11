@@ -5,15 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gazelle Ultimate C380 - Product Details</title>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hoofdpagina.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50">
+<header class="header">
+    <div class="container">
+        <div class="logo"><a href="{{route('home')}}"><img src="assets/icons/bike.png" alt="logo"></a></div>
+        <nav class="nav">
+            <a href="{{route('webshop')}}" class="nav-btn shop-link"><span>Webshop</span></a>
+            <a href="#" class="nav-btn">Reviews</a>
+            <a href="#" class="nav-btn">Contact</a>
+        </nav>
+        <div class="user-actions">
+            <a href="{{{route('login')}}}" class="login-btn">Inloggen</a>
+            <a href="{{route('register')}}" class="registreer-btn">Registreren</a>
+            <a href="{{route('winkelmand')}}" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
+        </div>
+    </div>
+</header>
 <div class="container mx-auto px-4 py-8">
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 mt-32">
         <!-- Product Image Gallery -->
         <div>
-            <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="bg-white rounded-lg shadow-lg p-6 ">
                 <img src="https://riesewijk.nl/wp-content/uploads/2024/01/gazelle-ultimate-c380-hmb-belt-heren-2023-582543.png"
                      alt="Gazelle Ultimate C380 HMB Belt Heren" class="w-full h-96 object-contain rounded-lg">
             </div>
