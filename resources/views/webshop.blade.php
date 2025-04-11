@@ -25,7 +25,7 @@
                 <div class="flex justify-between items-center">
                     <span class="text-lg font-bold text-gray-900">€{{ number_format($fiets->Prijs, 2, ',', '.') }}</span>
                     <div class="flex items-center space-x-2">
-                        <a href="#"
+                        <a href="{{ route('bekijk') }}"
                            class="bg-gray-900 text-white px-8 py-2 rounded hover:bg-blue-900">
                             Bekijk
                         </a>

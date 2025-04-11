@@ -108,3 +108,7 @@ Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
 Route::delete('/delete-bike/{id}', [FietsController::class, 'destroyBike']);
 
 Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('overview-bike');
+
+Route::get('/bekijk', function () {
+    return view('bekijk');
+})->name('bekijk');
