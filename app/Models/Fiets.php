@@ -11,7 +11,7 @@ class Fiets extends Model
     protected $fillable = [
         'Naam',
         'Prijs',
-        "Beschrijving",
+        'Beschrijving',
         'Voorraad',
         'Productcategorieën',
         'Merk',
@@ -23,4 +23,10 @@ class Fiets extends Model
         'KleurVarianten',
         'GarantieInMaand',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'FietsId', 'FietsId');
+    }
+
 }
