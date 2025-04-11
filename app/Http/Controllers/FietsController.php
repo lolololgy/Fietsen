@@ -37,6 +37,7 @@ class FietsController extends Controller
 
         $fiets->naam = $request->input('Naam');
         $fiets->prijs = $request->input('Prijs');
+        $fiets->beschrijving = $request->input('Beschrijving');
         $fiets->voorraad = $request->input('Voorraad');
         $fiets->productcategorieën = $request->input('Productcategorieën');
         $fiets->merk = $request->input('Merk');
@@ -96,5 +97,12 @@ class FietsController extends Controller
         }
 
     }
+    public function showWebshop()
+    {
+        $fietsen = Fiets::all();
+
+        return view('webshop', compact('fietsen'));
+    }
+
 }
 

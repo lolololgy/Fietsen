@@ -7,6 +7,9 @@
     <label for="Prijs">Prijs:</label>
     <input type="text" id="Prijs" name="Prijs" required><br>
 
+    <label for="Beschrijving">Beschrijving:</label>
+    <input type="text" id="Beschrijving" name="Beschrijving" required><br>
+
     <label for="Voorraad">Voorraad:</label>
     <input type="text" id="Voorraad" name="Voorraad" required><br>
 

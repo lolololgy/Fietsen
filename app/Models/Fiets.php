@@ -11,6 +11,7 @@ class Fiets extends Model
     protected $fillable = [
         'Naam',
         'Prijs',
+        "Beschrijving",
         'Voorraad',
         'Productcategorieën',
         'Merk',

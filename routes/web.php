@@ -16,10 +16,8 @@ Route::get('', function () {
 });
 
 
-// voeg product toe aan cart
-// id, hoeveelheid, type
-Route::post('/winkelmand/add', [WinkelmandController::class, 'addToCart'])->name('winkelmand.add');
 
+Route::post('/winkelmand/add', [WinkelmandController::class, 'addToCart'])->name('winkelmand.add');
 // View cart
 Route::get('/winkelmand', [WinkelmandController::class, 'viewCart'])->name('winkelmand.view');
 
@@ -29,6 +27,10 @@ Route::post('/winkelmand/remove/{id}', [WinkelmandController::class, 'removeFrom
 // Checkout
 Route::get('/winkelmand/checkout', [WinkelmandController::class, 'checkout'])->name('winkelmand.checkout');
 
+Route::get('/winkelmand/items', [WinkelmandController::class, 'getCartItems'])->name('winkelmand.items');
+Route::post('/winkelmand/checkout', [WinkelmandController::class, 'checkout'])->name('winkelmand.checkout');
+Route::get('/winkelmand', [WinkelmandController::class, 'showCart'])->name('card.view');
+Route::post('/winkelmand/remove', [WinkelmandController::class, 'removeItem'])->name('winkelmand.remove');
 
 
 Route::get('/home', [HomeController::class, 'view'])->name('home');
@@ -93,9 +95,10 @@ Route::get('/customerView', function () {
     return view('CustomerViewPortal.customerView');
 })->middleware('auth:userAuth');
 
-Route::get('/webshop', function () {
-    return view('webshop');
-});
+Route::get('/webshop', [FietsController::class, 'showWebshop'])->name('webshop');
+
+
+
 Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
 Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
 
