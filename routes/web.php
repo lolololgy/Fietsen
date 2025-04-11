@@ -72,13 +72,9 @@ Route::get('/image/{filename}', function ($filename) {
 
 //images ophalen voor de fietsen
 Route::get('/image/fiets/{filename}', function ($filename) {
-    if(Auth::user()->is_admin == 0){
-        abort(403);
-    }
 
     $safeFilename = basename($filename);
     $path = storage_path('app/private/assets/fietsen/' . $safeFilename);
-//    dd($path, file_exists($path));
 
     if (!file_exists($path)) {
         abort(404);
