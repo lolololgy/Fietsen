@@ -14,8 +14,11 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Card 1 -->
     <div class="shadow-md rounded-md overflow-hidden transform transition duration-500 hover:scale-105">
-        <img src="https://1886531642.rsc.cdn77.org/content/images/thumbs/0016986_esprit-heren-black-matt.png"
-             alt="Card 1 Image" class="w-full h-64 object-contain">
+{{--        <img src="https://1886531642.rsc.cdn77.org/content/images/thumbs/0016986_esprit-heren-black-matt.png"--}}
+{{--             alt="Card 1 Image" class="w-full h-64 object-contain">--}}
+        <img src="{{ route('image.show', ['filename' => 'card1.png']) }}"
+             alt="Card 1 Image"
+             class="w-full h-64 object-contain">
         <div class="p-6">
             <h2 class="text-xl font-semibold mb-2">Gazelle Esprit Heren</h2>
             <p class="text-gray-700 mb-4">De Gazelle Esprit Herenfiets is een robuuste en moderne stadsfiets,
@@ -25,7 +28,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€749,-</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a>
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
 
@@ -46,7 +51,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€4.499,00</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a>
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
             </div>
@@ -66,7 +73,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€1.659,00</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a>
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
             </div>
@@ -85,7 +94,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€949,00</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a>
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
             </div>
@@ -104,7 +115,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€999,00</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
             </div>
@@ -124,7 +137,9 @@
             <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">€949,00</span>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    <a href="{{ route('bekijk') }}">
+                        <button class="bg-gray-900 text-white px-8 py-2 rounded gap-3 hover:bg:blue-900">Bekijk</button>
+                    </a>
                     <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-900">In winkelwagen</button>
                 </div>
             </div>

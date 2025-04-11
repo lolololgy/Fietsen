@@ -35,3 +35,7 @@ Route::get('/image/{filename}', function ($filename) {
 Route::get('/webshop', function () {
     return view('webshop');
 });
+
+Route::get('/bekijk', function () {
+    return view('bekijk');
+});
