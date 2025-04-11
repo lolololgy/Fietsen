@@ -108,28 +108,15 @@
         <div class="best-sellers">
             <h2>Meest Verkochte Fietsen</h2>
             <div class="card-container">
+                @foreach($fietsen as $fiets)
                 <div class="card">
-                    <img src="assets/images/placeholder.png" alt="card img">
+                    <img src="{{ route('image.fiets', ['filename' => basename($fiets->images->first()->Src)]) }}" alt="card img">
                     <section>
-                        <p class="beschrijving-fiets">Beschrijving Fiets</p>
+                        <p class="beschrijving-fiets">{{ $fiets->Beschrijving }}</p>
                         <a href="#" class="hyperlink-fiets">Hyperlink</a>
                     </section>
                 </div>
-                <div class="card">
-                    <img src="assets/images/placeholder.png" alt="card img">
-                    <section>
-                        <p class="beschrijving-fiets">Beschrijving Fiets</p>
-                        <a href="#" class="hyperlink-fiets">Hyperlink</a>
-                    </section>
-                </div>
-                <div class="card">
-                    <!-- Verander naar db foto -->
-                    <img src="assets/images/placeholder.png" alt="card img">
-                    <section>
-                        <p class="beschrijving-fiets">Beschrijving Fiets</p>
-                        <a href="#" class="hyperlink-fiets">Hyperlink</a>
-                    </section>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
