@@ -43,7 +43,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('userAuth')->attempt($credentials)) {
-            return redirect()->intended('/home');
+            return redirect()->intended('/overview-bike');
         }
 
         return redirect('/userLogin')->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');

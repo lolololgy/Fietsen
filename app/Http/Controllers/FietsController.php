@@ -15,7 +15,7 @@ class FietsController extends Controller
     public function overviewBike()
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
 
         if (Auth::user()->is_admin == 1) {
@@ -29,7 +29,7 @@ class FietsController extends Controller
     public function createBike()
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
 
         if (Auth::user()->is_admin == 1) {
@@ -80,7 +80,7 @@ class FietsController extends Controller
     public function updateBike($id)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
 
         if (Auth::user()->is_admin == 1) {
@@ -95,7 +95,7 @@ class FietsController extends Controller
     public function updatingBike($id, Request $request)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
         if (Auth::user()->is_admin == 1) {
             $fiets = Fiets::where('FietsId', $id)->first();
@@ -127,7 +127,7 @@ class FietsController extends Controller
     public function deleteBikeImage($id, $filename)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
         if (Auth::user()->is_admin == 1) {
             $fiets = Fiets::where('FietsId', $id)->first();
@@ -154,7 +154,7 @@ class FietsController extends Controller
     public function destroyBike($id)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect('/userLogin');
         }
         if (Auth::user()->is_admin == 1) {
             $fiets = Fiets::where('FietsId', $id)->first();

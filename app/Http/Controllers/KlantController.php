@@ -85,4 +85,17 @@ class KlantController extends Controller
 
         return redirect('/login')->with('success', 'Je bent uitgelogd.');
     }
+
+    public function account()
+    {
+        if (!Auth::guard('customerAuth')->check()) {
+            return redirect('/login');
+        }
+
+        $customer = Auth::guard('customerAuth')->user();  // Get the authenticated customer
+
+        return view('account', compact('customer'));  // Pass the customer data to the view
+    }
+
+
 }

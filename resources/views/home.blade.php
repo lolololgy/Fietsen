@@ -38,8 +38,12 @@
                 <a href="#" class="nav-btn">Contact</a>
             </nav>
             <div class="user-actions">
-                <a href="{{{route('login')}}}" class="login-btn">Inloggen</a>
-                <a href="{{route('register')}}" class="registreer-btn">Registreren</a>
+                @if (!Auth::guard('customerAuth')->check())
+                    <a href="{{ route('login') }}" class="login-btn">Inloggen</a>
+                    <a href="{{ route('register') }}" class="registreer-btn">Registreren</a>
+                @else
+                    <a href="{{ route('account') }}" class="account-btn">Account</a>
+                @endif
                 <a href="{{route('winkelmand')}}" class="cart-btn"><img src="assets/icons/shopping-bag.png" alt="shopping cart"></a>
             </div>
         </div>

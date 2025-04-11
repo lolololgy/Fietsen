@@ -46,6 +46,8 @@ Route::post('/userLogin', [UserController::class, 'userLogin'])->name('userLogin
 Route::post('/userLogout', [UserController::class, 'userLogout'])->name('userLogout');
 Route::get('/userLogout', [UserController::class, 'userLogout'])->name('userLogout');
 
+Route::get('/account', [KlantController::class, 'account'])->name('account');
+
 Route::get('/register', [KlantController::class, 'showRegistrationForm']);
 Route::post('/register', [KlantController::class, 'register'])->name('register');
 
