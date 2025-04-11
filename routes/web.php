@@ -103,3 +103,7 @@ Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
 Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
 
 Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('overview-bike');
+
+Route::get('/bekijk', function () {
+    return view('bekijk');
+});
