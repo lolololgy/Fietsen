@@ -26,6 +26,7 @@
     <button type="submit" class="submit-btn">Register</button>
     <br>
     <a href="{{ route('login') }}" class="login-link">Already have an account? Login here</a>
+    <a href="{{ route('home') }}" class="register-link">Go home</a>
 </form>
 
 <script>

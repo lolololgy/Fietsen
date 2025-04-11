@@ -9,6 +9,7 @@
     <button type="submit" class="submit-btn">Login</button>
     <br>
     <a href="{{ route('userRegister') }}" class="register-link">Register</a>
+    <a href="{{ route('home') }}" class="register-link">Go home</a>
 </form>
 <style>
     /* Styling the form container */
