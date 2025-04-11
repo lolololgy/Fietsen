@@ -127,37 +127,104 @@
 
     <section class="cta-video">
         <div class="gradient"></div>
-        <video src="assets/images/GoPro Max： The Wildest Mountain Bike Shot I have Captured!.mp4
-        " autoplay></video>
+        <video src="assets/images/video.mp4" autoplay muted loop></video>
         <div class="hyperlink-video">
-            <a href="#">Hyperlink</a>
+            <a href="#">Bekijk Sportieve E-Bikes</a>
         </div>
     </section>
 
-    <section class="reviews">
-        <a href="#" class="reviewpage-hyperlink">Bekijk alle reviews</a>
-        <div class="review-card">
-            <div class="sterren">★★★★★</div>
-            <div class="gebruiker">
-                <img src="profile.jpg" alt="Profielfoto" class="profiel-foto">
-                <p class="gebruikersnaam">Gebruikersnaam</p>
+    <div class="review-container">
+        <div class="container">
+            <div class="review-link">
+                <a href="#">Bekijk alle reviews <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <p class="review-text">Dit is een geweldige fiets!</p>
+            <div class="review-cards">
+                <div class="card">
+                    <section class="card-top">
+                        <div class="user-info">
+                            <img src="assets/images/placeholder.png" alt="Profiel">
+                            <span>Gebruiker 1</span>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </section>
+                    <div class="review-text">
+                        Geweldige service en super snelle levering!
+                    </div>
+                </div>
+                <div class="card">
+                    <section class="card-top">
+                        <div class="user-info">
+                            <img src="assets/images/placeholder.png" alt="Profiel">
+                            <span>Gebruiker 2</span>
+                        </div>
+                        <div class="stars">★★★★</div>
+                    </section>
+                    <div class="review-text">
+                        Mooie en snelle fietsen, ik ben er erg blij mee!
+                    </div>
+                </div>
+                <div class="card">
+                    <section class="card-top">
+                        <div class="user-info">
+                            <img src="assets/images/placeholder.png" alt="Profiel">
+                            <span>Gebruiker 3</span>
+                        </div>
+                        <div class="stars">★★★★</div>
+                    </section>
+                    <div class="review-text">
+                        De klantenservice is erg behulpzaam en vriendelijk.
+                    </div>
+                </div>
+                <div class="card">
+                    <section class="card-top">
+                        <div class="user-info">
+                            <img src="assets/images/placeholder.png" alt="Profiel">
+                            <span>Gebruiker 4</span>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </section>
+                    <div class="review-text">
+                        Goede kwaliteit fietsen voor een eerlijke prijs.
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
     <footer class="footer">
-        <div class="footer-links">
-            <p class="copyright">&copy; 2024 Fiets Webshop</p>
-            <a href="#">Privacybeleid</a>
-            <a href="#">Cookies</a>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-links">
+                    <img src="assets/icons/bike.png" alt="logo">
+                    <ul>
+                        <li><a href="#">E-Bikes</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-rechts">
+                    <h6>Schrijf je in voor onze Nieuwsbrief!</h6>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Jouw e-mailadres" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Aanmelden</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <section>
+                    <p class="copyright">&copy; 2024 Fiets Webshop</p>
+                </section>
+                <section class="footer-regels">
+                    <a href="#">Privacybeleid</a>
+                    <a href="#">Cookies</a>
+                </section>
+            </div>
         </div>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Jouw e-mailadres" class="newsletter-input">
-            <button type="submit" class="newsletter-btn">Aanmelden</button>
-        </form>
     </footer>
 </body>
 
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> Roan
