@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/hoofdpagina.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Winkelmand</title>
     @vite(['resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,9 +15,9 @@
             padding: 20px;
         }
 
-        .container {
+        .body-container {
             max-width: 1200px;
-            margin: auto;
+            margin: 102px auto;
             background: white;
             padding: 20px;
             border-radius: 8px;
@@ -124,7 +125,7 @@
         </div>
     </div>
 </header>
-<div class="container">
+<div class="body-container" >
     <h1>Winkelmand</h1>
 
     @php

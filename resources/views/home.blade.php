@@ -117,7 +117,7 @@
                     <img src="{{ route('image.fiets', ['filename' => basename($fiets->images->first()->Src)]) }}" alt="card img">
                     <section>
                         <p class="beschrijving-fiets">{{ $fiets->Beschrijving }}</p>
-                        <a href="#" class="hyperlink-fiets">Hyperlink</a>
+                        <a href="{{route('bekijk')}}" class="hyperlink-fiets">Bekijk</a>
                     </section>
                 </div>
                 @endforeach
