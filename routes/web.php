@@ -29,14 +29,15 @@ Route::get('/image/{filename}', function ($filename) {
         abort(403);
     }
 
-    $path = storage_path('app/private/assets/' . $filename);
+    $safeFilename = basename($filename);
+    $path = storage_path('app/private/assets/fietsen/' . $safeFilename);
 
     if (!file_exists($path)) {
         abort(404);
     }
 
     return response()->file($path);
-})->middleware('auth')->name('image');
+})->name('image');
 
 //images ophalen voor de fietsen
 Route::get('/image/fiets/{filename}', function ($filename) {
@@ -44,14 +45,16 @@ Route::get('/image/fiets/{filename}', function ($filename) {
         abort(403);
     }
 
-    $path = storage_path('app/private/assets/fietsen/' . $filename);
+    $safeFilename = basename($filename);
+    $path = storage_path('app/private/assets/fietsen/' . $safeFilename);
+//    dd($path, file_exists($path));
 
     if (!file_exists($path)) {
         abort(404);
     }
 
     return response()->file($path);
-})->middleware('auth')->name('image.fiets');
+})->name('image.fiets');
 
 //fiets logica routes
 Route::get('/create-bike', [FietsController::class, 'createBike'])->name('create-bike');
@@ -59,5 +62,7 @@ Route::post('/create-bike', [FietsController::class, 'storeBike'])->name('store-
 
 Route::get('/update-bike/{id}', [FietsController::class, 'updateBike']);
 Route::post('/update-bike/{id}', [FietsController::class, 'updatingBike']);
+
+Route::delete('/delete-bike/{id}', [FietsController::class, 'destroyBike']);
 
 Route::get('/overview-bike', [FietsController::class, 'overviewBike'])->name('overview-bike');

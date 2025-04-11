@@ -1,4 +1,112 @@
 @vite(['resources/js/app.js'])
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 15px;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    #imagePreview {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .image-wrapper {
+        position: relative;
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 5px;
+        background: white;
+    }
+
+    .image-preview {
+        max-width: 80px;
+        max-height: 80px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .remove-image {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        border-radius: 50%;
+    }
+    .terug-div {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .action-link {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+<div class="terug-div">
+    <a href="/overview-bike" class="action-link">Terug naar overzicht</a>
+</div>
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <form id="bikeForm">
     <label for="Naam">Naam:</label>
@@ -6,6 +114,9 @@
 
     <label for="Prijs">Prijs:</label>
     <input type="text" id="Prijs" name="Prijs" required><br>
+
+    <label for="Beschrijving">Beschrijving:</label>
+    <input type="text" id="Beschrijving" name="Beschrijving" required><br>
 
     <label for="Voorraad">Voorraad:</label>
     <input type="text" id="Voorraad" name="Voorraad" required><br>
@@ -66,7 +177,7 @@
                 imgElement.setAttribute('data-index', index);
 
                 let removeButton = document.createElement('button');
-                removeButton.innerText = 'Remove';
+                removeButton.innerText = 'X';
                 removeButton.classList.add('remove-image');
                 removeButton.onclick = function() {
                     removeImage(index);
@@ -139,19 +250,20 @@
     }
 
     .image-preview {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 200px;
+        max-height: 200px;
         object-fit: cover;
     }
 
     .remove-image {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -11px;
+        right: 6px;
         background-color: rgba(255, 0, 0, 0.7);
         color: white;
         border: none;
-        padding: 5px;
+        padding: 2px;
         cursor: pointer;
+        width: 20px;
     }
 </style>
