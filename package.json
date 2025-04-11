@@ -3,14 +3,19 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "concurrently \"npm run dev:vite\" \"php artisan serve\"",
+        "dev:vite": "vite"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.7.4",
-        "concurrently": "^9.0.1",
+        "concurrently": "^9.1.2",
         "laravel-vite-plugin": "^1.2.0",
         "tailwindcss": "^4.0.0",
         "vite": "^6.0.11"
+    },
+    "dependencies": {
+        "jquery": "^3.7.1",
+        "toastr": "^2.1.4"
     }
 }

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('klanten', function (Blueprint $table) {
             $table->id('KlantId');
-            $table->string('Naam');
-            $table->string('Email')->unique();
-            $table->string('Wachtwoord');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('Telefoon')->nullable();
             $table->string('Adres');
             $table->string('Postcode');
-            $table->string('Rechten')->default('user');
+            $table->string('Rechten')->default('klant');
             $table->timestamps();
         });
 
@@ -42,7 +42,10 @@ return new class extends Migration
 
         Schema::create('images', function (Blueprint $table) {
             $table->id('ImageId');
-            $table->foreignId('FietsId')->constrained('fietsen')->onDelete('cascade');
+            $table->unsignedBigInteger('FietsId');
+            $table->foreign('FietsId')
+                ->references('FietsId')->on('fietsen')
+                ->onDelete('cascade');
             $table->string('Src');
             $table->integer('Positie');
             $table->timestamps();
@@ -58,22 +61,42 @@ return new class extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->id('ReviewId');
-            $table->foreignId('KlantId')->constrained('klanten')->onDelete('cascade');
-            $table->foreignId('FietsId')->nullable()->constrained('fietsen')->onDelete('cascade');
-            $table->foreignId('AccessoireId')->nullable()->constrained('accessoires')->onDelete('cascade');
-            $table->integer('SterrenAantal');
+            $table->unsignedBigInteger('KlantId');
+            $table->foreign('KlantId')
+                ->references('KlantId')->on('klanten')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('FietsId')->nullable();
+            $table->foreign('FietsId')
+                ->references('FietsId')->on('fietsen')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('AccessoireId')->nullable();
+            $table->foreign('AccessoireId')
+                ->references('AccessoireId')->on('accessoires')
+                ->onDelete('cascade');
+            $table->double('SterrenAantal');
             $table->date('Datum');
             $table->text('Beschrijving');
             $table->timestamps();
         });
 
         Schema::create('orders', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id('OrderId');
-            $table->foreignId('KlantId')->constrained('klanten')->onDelete('cascade');
+            $table->unsignedBigInteger('KlantId');
+            $table->foreign('KlantId')
+                ->references('KlantId')->on('klanten')
+                ->onDelete('cascade');
             $table->date('Datum');
             $table->decimal('TotalPrijs', 10, 2);
-            $table->foreignId('FietsId')->nullable()->constrained('fietsen')->onDelete('cascade');
-            $table->foreignId('AccessoireId')->nullable()->constrained('accessoires')->onDelete('cascade');
+            // Corrected line:
+            $table->unsignedBigInteger('FietsId')->nullable();
+            $table->foreign('FietsId')
+                ->references('FietsId')->on('fietsen')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('AccessoireId')->nullable();
+            $table->foreign('AccessoireId')
+                ->references('AccessoireId')->on('accessoires')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

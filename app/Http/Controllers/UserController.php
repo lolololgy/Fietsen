@@ -10,17 +10,17 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-    public function showRegistrationForm()
+    public function showUserRegistrationForm()
     {
-        return view('auth.register');
+        return view('userAuth.userRegister');
     }
 
-    public function register(Request $request)
+    public function userRegister(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|confirmed',
         ]);
 
         User::create([
@@ -29,31 +29,32 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login')->with('success', 'Registratie succesvol! log nu in.');
+        return redirect('/userLogin')->with('success', 'Registratie succesvol! log nu in.');
     }
 
-    public function showLoginForm()
+    public function showUserLoginForm()
     {
-        return view('auth.login');
+        return view('userAuth.userLogin');
     }
 
-    public function login(Request $request)
+    public function userLogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('userAuth')->attempt($credentials)) {
             return redirect()->intended('/home');
         }
 
-        return redirect('/login')->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');
+        return redirect('/userLogin')->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');
     }
 
-    public function logout(Request $request)
+    public function userLogout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('userAuth')->logout();
+        Auth::guard('customerAuth')->logout();
         session()->flush();
         session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Je bent uitgelogd.');
+        return redirect('/userLogin')->with('success', 'Je bent uitgelogd.');
     }
 }

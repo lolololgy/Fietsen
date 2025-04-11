@@ -10,12 +10,6 @@ class HomeController extends Controller
 {
     public function view()
     {
-        $user = Auth::user();
-
-        if ($user) {
-            return view('home', compact('user'));
-        }
-
-        return redirect('/login')->with('error', 'Log eerst in.');
+        return view('home');
     }
 }
